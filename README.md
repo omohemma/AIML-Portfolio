@@ -33,8 +33,13 @@ AIML_Portfolio/
 
 Open each project folder and start with its `README.md`. The README explains the business problem, dataset, approach, key outcomes, and where to find the notebook or rendered report.
 
+## Dataset Usage
+
+The datasets in this repository were provided as part of Great Learning project coursework and are included for educational and portfolio demonstration purposes based on permission confirmed by Great Learning.
+
 ## Notes
 
 - The original Colab submission filenames were renamed into shorter portfolio-friendly names.
 - Local runtime folders such as `.venv/`, `__pycache__/`, checkpoint folders, and zip archives are excluded.
 - Datasets are included only when they are directly used by a portfolio project.
+
