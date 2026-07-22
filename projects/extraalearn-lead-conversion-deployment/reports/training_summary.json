@@ -1,0 +1,219 @@
+{
+  "shape": [
+    4612,
+    15
+  ],
+  "columns": [
+    "ID",
+    "age",
+    "current_occupation",
+    "first_interaction",
+    "profile_completed",
+    "website_visits",
+    "time_spent_on_website",
+    "page_views_per_visit",
+    "last_activity",
+    "print_media_type1",
+    "print_media_type2",
+    "digital_media",
+    "educational_channels",
+    "referral",
+    "status"
+  ],
+  "missing": {
+    "ID": 0,
+    "age": 0,
+    "current_occupation": 0,
+    "first_interaction": 0,
+    "profile_completed": 0,
+    "website_visits": 0,
+    "time_spent_on_website": 0,
+    "page_views_per_visit": 0,
+    "last_activity": 0,
+    "print_media_type1": 0,
+    "print_media_type2": 0,
+    "digital_media": 0,
+    "educational_channels": 0,
+    "referral": 0,
+    "status": 0
+  },
+  "duplicates": 0,
+  "target_counts": {
+    "0": 3235,
+    "1": 1377
+  },
+  "target_pct": {
+    "0": 70.14,
+    "1": 29.86
+  },
+  "cat_cols": [
+    "current_occupation",
+    "first_interaction",
+    "profile_completed",
+    "last_activity",
+    "print_media_type1",
+    "print_media_type2",
+    "digital_media",
+    "educational_channels",
+    "referral"
+  ],
+  "num_cols": [
+    "age",
+    "website_visits",
+    "time_spent_on_website",
+    "page_views_per_visit"
+  ],
+  "results": [
+    {
+      "Model": "Random Forest Train",
+      "Accuracy": 0.9993804213135068,
+      "Recall": 1.0,
+      "Precision": 0.9979296066252588,
+      "F1": 0.9989637305699481,
+      "Confusion": [
+        [
+          2262,
+          2
+        ],
+        [
+          0,
+          964
+        ]
+      ]
+    },
+    {
+      "Model": "Random Forest Test",
+      "Accuracy": 0.8591040462427746,
+      "Recall": 0.7239709443099274,
+      "Precision": 0.7868421052631579,
+      "F1": 0.7540983606557377,
+      "Confusion": [
+        [
+          890,
+          81
+        ],
+        [
+          114,
+          299
+        ]
+      ]
+    },
+    {
+      "Model": "AdaBoost Train",
+      "Accuracy": 0.8100991325898389,
+      "Recall": 0.558091286307054,
+      "Precision": 0.7420689655172413,
+      "F1": 0.6370633510953226,
+      "Confusion": [
+        [
+          2077,
+          187
+        ],
+        [
+          426,
+          538
+        ]
+      ]
+    },
+    {
+      "Model": "AdaBoost Test",
+      "Accuracy": 0.8251445086705202,
+      "Recall": 0.585956416464891,
+      "Precision": 0.7731629392971247,
+      "F1": 0.6666666666666666,
+      "Confusion": [
+        [
+          900,
+          71
+        ],
+        [
+          171,
+          242
+        ]
+      ]
+    },
+    {
+      "Model": "Tuned Random Forest Train",
+      "Accuracy": 0.9182156133828996,
+      "Recall": 0.91701244813278,
+      "Precision": 0.8277153558052435,
+      "F1": 0.8700787401574803,
+      "Confusion": [
+        [
+          2080,
+          184
+        ],
+        [
+          80,
+          884
+        ]
+      ]
+    },
+    {
+      "Model": "Tuned Random Forest Test",
+      "Accuracy": 0.8569364161849711,
+      "Recall": 0.7917675544794189,
+      "Precision": 0.744874715261959,
+      "F1": 0.7676056338028169,
+      "Confusion": [
+        [
+          859,
+          112
+        ],
+        [
+          86,
+          327
+        ]
+      ]
+    },
+    {
+      "Model": "Tuned AdaBoost Train",
+      "Accuracy": 0.8677199504337051,
+      "Recall": 0.766597510373444,
+      "Precision": 0.7853347502656748,
+      "F1": 0.7758530183727034,
+      "Confusion": [
+        [
+          2062,
+          202
+        ],
+        [
+          225,
+          739
+        ]
+      ]
+    },
+    {
+      "Model": "Tuned AdaBoost Test",
+      "Accuracy": 0.8641618497109826,
+      "Recall": 0.7578692493946732,
+      "Precision": 0.7805486284289277,
+      "F1": 0.769041769041769,
+      "Confusion": [
+        [
+          883,
+          88
+        ],
+        [
+          100,
+          313
+        ]
+      ]
+    }
+  ],
+  "rf_best_params": {
+    "model__max_depth": null,
+    "model__max_features": "sqrt",
+    "model__min_samples_leaf": 2,
+    "model__min_samples_split": 10,
+    "model__n_estimators": 100
+  },
+  "rf_best_score": 0.7797130130018683,
+  "ada_best_params": {
+    "model__estimator": "DecisionTreeClassifier(max_depth=3, random_state=1)",
+    "model__learning_rate": "0.5",
+    "model__n_estimators": "100"
+  },
+  "ada_best_score": 0.7648426197353182,
+  "final_name": "Tuned AdaBoost"
+}
