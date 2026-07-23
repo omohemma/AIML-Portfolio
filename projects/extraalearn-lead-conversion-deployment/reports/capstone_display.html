@@ -7,30 +7,45 @@
   <meta name="description" content="Portfolio display page for an AI/ML capstone project that predicts ExtraaLearn lead conversion and supports sales prioritization.">
   <style>
     :root {
-      --ink: #18222f;
-      --muted: #5f6d7a;
-      --line: #d9e1e8;
-      --paper: #f7fafc;
-      --white: #ffffff;
-      --blue: #2563eb;
-      --cyan: #0891b2;
-      --green: #16875a;
-      --amber: #b7791f;
-      --red: #c2410c;
-      --shadow: 0 18px 48px rgba(19, 34, 54, 0.12);
+      --bg: #171a1f;
+      --surface: #1f242b;
+      --surface-2: #262d36;
+      --surface-3: #111419;
+      --text: #f4f7fb;
+      --body: #c6ced8;
+      --muted: #87919f;
+      --line: #353d49;
+      --violet: #c792ea;
+      --cyan: #6bd9e8;
+      --green: #a6e3a1;
+      --gold: #e6c177;
+      --rose: #f38ba8;
+      --red: #ff7b72;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.32);
       --radius: 8px;
+      --mono: Consolas, "Courier New", monospace;
+      --sans: Inter, Arial, Helvetica, sans-serif;
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.55;
+      background-color: var(--bg);
+      background-image:
+        linear-gradient(rgba(107, 217, 232, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(107, 217, 232, 0.035) 1px, transparent 1px);
+      background-size: 34px 34px;
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.58;
+      overflow-x: hidden;
     }
 
     a {
@@ -42,15 +57,74 @@
     }
 
     .hero {
-      background: #102033;
-      color: var(--white);
+      color: var(--text);
       overflow: hidden;
+      padding: 22px 0 34px;
     }
 
     .hero-inner,
-    .section-inner {
-      width: min(1120px, calc(100% - 32px));
+    .section-inner,
+    .capstone-nav {
+      width: min(1200px, calc(100% - 32px));
       margin: 0 auto;
+    }
+
+    .capstone-nav {
+      display: flex;
+      min-height: 64px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand,
+    .navlinks,
+    .hero-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    .brand {
+      gap: 10px;
+      color: var(--text);
+      font-family: var(--mono);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: inline-grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(166, 227, 161, 0.5);
+      border-radius: var(--radius);
+      color: var(--green);
+      background: rgba(166, 227, 161, 0.08);
+    }
+
+    .navlinks {
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+
+    .navlinks a {
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      padding: 8px 10px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.82rem;
+      text-decoration: none;
+    }
+
+    .navlinks a:hover,
+    .navlinks a:focus-visible {
+      border-color: var(--line);
+      color: var(--cyan);
+      outline: none;
     }
 
     .hero-inner {
@@ -58,15 +132,19 @@
       grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
       gap: 48px;
       align-items: center;
-      padding: 56px 0 48px;
+      padding: 54px 0 24px;
+    }
+
+    .hero-inner > * {
+      min-width: 0;
     }
 
     .eyebrow {
       margin: 0 0 12px;
-      color: #9bd4ea;
-      font-size: 0.78rem;
+      color: var(--green);
+      font-family: var(--mono);
+      font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: 0;
       text-transform: uppercase;
     }
 
@@ -79,90 +157,135 @@
 
     h1 {
       max-width: 760px;
-      margin-bottom: 16px;
-      font-size: clamp(2.25rem, 5vw, 4.75rem);
-      line-height: 1;
+      margin-bottom: 18px;
+      font-family: var(--mono);
+      font-size: clamp(2.45rem, 4.8vw, 4.4rem);
+      line-height: 1.03;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      margin-bottom: 0;
+      font-family: var(--mono);
+      font-size: clamp(1.7rem, 3vw, 2.55rem);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      font-family: var(--mono);
+      font-size: 1.1rem;
+      line-height: 1.25;
       letter-spacing: 0;
     }
 
     .hero-copy {
-      max-width: 680px;
-      margin-bottom: 28px;
-      color: #d8e5ee;
-      font-size: 1.05rem;
+      max-width: 720px;
+      margin-bottom: 26px;
+      color: var(--body);
+      font-size: 1.08rem;
     }
 
     .hero-actions {
-      display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .button {
+    .button,
+    .artifact-card strong {
       display: inline-flex;
-      min-height: 44px;
+      min-height: 42px;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.28);
+      border: 1px solid var(--line);
       border-radius: var(--radius);
-      padding: 10px 14px;
-      color: var(--white);
+      padding: 9px 12px;
+      color: var(--cyan);
+      background: rgba(31, 36, 43, 0.84);
+      font-family: var(--mono);
+      font-size: 0.82rem;
       font-weight: 700;
       text-decoration: none;
-      transition: transform 160ms ease, background 160ms ease;
     }
 
-    .button:hover {
-      transform: translateY(-1px);
-      background: rgba(255, 255, 255, 0.08);
+    .button:hover,
+    .button:focus-visible,
+    .artifact-card:hover strong,
+    .artifact-card:focus-visible strong {
+      border-color: var(--cyan);
+      color: #e7fbff;
+      background: rgba(107, 217, 232, 0.1);
+      outline: none;
     }
 
     .button.primary {
-      border-color: var(--blue);
-      background: var(--blue);
+      border-color: rgba(199, 146, 234, 0.75);
+      color: #f0d7ff;
+      background: rgba(199, 146, 234, 0.12);
     }
 
-    .button.primary:hover {
-      background: #1d4ed8;
+    .product-panel,
+    .metric-card,
+    .story-card,
+    .artifact-card,
+    .matrix,
+    .distribution,
+    .recommendation {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(31, 36, 43, 0.94);
+      box-shadow: var(--shadow);
     }
 
     .product-panel {
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.06);
-      box-shadow: var(--shadow);
+      min-width: 0;
       overflow: hidden;
     }
 
     .panel-top {
       display: flex;
+      min-height: 44px;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 14px 16px;
+      gap: 12px;
+      border-bottom: 1px solid var(--line);
+      background: var(--surface-3);
+      padding: 0 14px;
     }
 
     .window-dots {
       display: flex;
-      gap: 7px;
+      gap: 8px;
     }
 
     .window-dots span {
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: #91a7ba;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--rose);
+    }
+
+    .window-dots span:nth-child(2) {
+      background: var(--gold);
+    }
+
+    .window-dots span:nth-child(3) {
+      background: var(--green);
     }
 
     .panel-label {
-      color: #b8c9d8;
-      font-size: 0.78rem;
+      min-width: 0;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.76rem;
       font-weight: 700;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .panel-body {
-      padding: 18px;
+      padding: 22px;
     }
 
     .score-ring {
@@ -173,19 +296,22 @@
       place-items: center;
       border-radius: 50%;
       background:
-        radial-gradient(circle at center, #102033 0 56%, transparent 57%),
-        conic-gradient(var(--green) 0 77%, rgba(255, 255, 255, 0.18) 77% 100%);
+        radial-gradient(circle at center, var(--surface) 0 56%, transparent 57%),
+        conic-gradient(var(--green) 0 77%, rgba(255, 255, 255, 0.12) 77% 100%);
     }
 
     .score-ring strong {
       display: block;
+      color: var(--text);
+      font-family: var(--mono);
       font-size: 2.4rem;
       line-height: 1;
     }
 
     .score-ring span {
       display: block;
-      color: #b8c9d8;
+      color: var(--muted);
+      font-family: var(--mono);
       font-size: 0.75rem;
       font-weight: 700;
       text-align: center;
@@ -201,17 +327,23 @@
       grid-template-columns: 80px 1fr 64px;
       gap: 10px;
       align-items: center;
+      border: 1px solid rgba(107, 217, 232, 0.12);
       border-radius: var(--radius);
-      background: rgba(255, 255, 255, 0.08);
+      background: rgba(107, 217, 232, 0.055);
       padding: 10px;
-      color: #e7eef5;
+      color: var(--body);
       font-size: 0.88rem;
+    }
+
+    .lead-row strong,
+    .lead-row span {
+      font-family: var(--mono);
     }
 
     .bar {
       height: 8px;
       border-radius: 999px;
-      background: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.12);
       overflow: hidden;
     }
 
@@ -219,35 +351,28 @@
       display: block;
       height: 100%;
       border-radius: inherit;
-      background: #42c78d;
+      background: var(--green);
     }
 
     .section {
+      border-top: 1px solid rgba(53, 61, 73, 0.7);
       padding: 56px 0;
     }
 
     .section.alt {
-      background: var(--white);
+      background: rgba(17, 20, 25, 0.22);
     }
 
     .section-title {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+      gap: 28px;
       align-items: end;
-      justify-content: space-between;
-      gap: 18px;
       margin-bottom: 24px;
     }
 
-    h2 {
-      margin-bottom: 0;
-      font-size: clamp(1.65rem, 3vw, 2.35rem);
-      line-height: 1.12;
-      letter-spacing: 0;
-    }
-
     .section-kicker {
-      max-width: 520px;
+      max-width: 620px;
       margin-bottom: 0;
       color: var(--muted);
     }
@@ -258,73 +383,81 @@
       gap: 14px;
     }
 
-    .metric-card,
-    .story-card,
-    .artifact-card,
-    .matrix,
-    .recommendation {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--white);
-      box-shadow: 0 10px 28px rgba(19, 34, 54, 0.06);
-    }
-
     .metric-card {
+      min-height: 150px;
       padding: 18px;
     }
 
-    .metric-label {
-      margin-bottom: 6px;
-      color: var(--muted);
-      font-size: 0.8rem;
+    .metric-label,
+    .artifact-type {
+      color: var(--gold);
+      font-family: var(--mono);
+      font-size: 0.76rem;
       font-weight: 700;
       text-transform: uppercase;
     }
 
     .metric-value {
-      margin-bottom: 8px;
+      margin: 8px 0;
+      color: var(--green);
+      font-family: var(--mono);
       font-size: 2rem;
       font-weight: 800;
       line-height: 1;
     }
 
-    .metric-note {
-      margin: 0;
+    .metric-note,
+    .story-card p,
+    .artifact-card p,
+    .recommendation p,
+    .footer {
       color: var(--muted);
-      font-size: 0.9rem;
     }
 
-    .story-grid {
+    .metric-note {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .story-grid,
+    .recommendations,
+    .artifact-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 16px;
     }
 
-    .story-card {
+    .story-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .recommendations,
+    .artifact-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .story-card,
+    .recommendation,
+    .artifact-card,
+    .matrix,
+    .distribution {
       padding: 22px;
     }
 
     .story-number {
-      display: inline-flex;
+      display: inline-grid;
       width: 34px;
       height: 34px;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: #dbeafe;
-      color: #1d4ed8;
+      place-items: center;
+      border: 1px solid rgba(199, 146, 234, 0.4);
+      border-radius: var(--radius);
+      color: var(--violet);
+      background: rgba(199, 146, 234, 0.06);
+      font-family: var(--mono);
       font-weight: 800;
     }
 
     .story-card h3 {
-      margin: 16px 0 8px;
-      font-size: 1.12rem;
-    }
-
-    .story-card p,
-    .artifact-card p,
-    .recommendation p {
-      color: var(--muted);
+      margin: 18px 0 8px;
     }
 
     .visual-grid {
@@ -332,10 +465,6 @@
       grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
       gap: 18px;
       align-items: stretch;
-    }
-
-    .matrix {
-      padding: 22px;
     }
 
     .matrix-grid {
@@ -347,13 +476,15 @@
 
     .matrix-cell {
       min-height: 110px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: var(--radius);
       padding: 14px;
-      color: var(--white);
+      color: var(--text);
     }
 
     .matrix-cell strong {
       display: block;
+      font-family: var(--mono);
       font-size: 2rem;
       line-height: 1;
     }
@@ -361,32 +492,26 @@
     .matrix-cell span {
       display: block;
       margin-top: 8px;
-      font-size: 0.84rem;
+      color: rgba(244, 247, 251, 0.84);
+      font-family: var(--mono);
+      font-size: 0.8rem;
       font-weight: 700;
     }
 
     .tn {
-      background: var(--green);
+      background: rgba(166, 227, 161, 0.18);
     }
 
     .tp {
-      background: var(--blue);
+      background: rgba(107, 217, 232, 0.18);
     }
 
     .fp {
-      background: var(--amber);
+      background: rgba(230, 193, 119, 0.18);
     }
 
     .fn {
-      background: var(--red);
-    }
-
-    .distribution {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: var(--white);
-      padding: 22px;
-      box-shadow: 0 10px 28px rgba(19, 34, 54, 0.06);
+      background: rgba(255, 123, 114, 0.18);
     }
 
     .dist-row {
@@ -396,13 +521,14 @@
       align-items: center;
       margin-top: 18px;
       color: var(--muted);
+      font-family: var(--mono);
       font-weight: 700;
     }
 
     .dist-track {
       height: 18px;
       border-radius: 999px;
-      background: #e7edf2;
+      background: rgba(255, 255, 255, 0.1);
       overflow: hidden;
     }
 
@@ -414,7 +540,7 @@
 
     .dist-track .converted {
       width: 29.86%;
-      background: var(--blue);
+      background: var(--green);
     }
 
     .dist-track .not-converted {
@@ -422,47 +548,26 @@
       background: var(--cyan);
     }
 
-    .recommendations {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .recommendation {
-      padding: 18px;
-    }
-
     .recommendation h3 {
       margin-bottom: 8px;
       font-size: 1rem;
     }
 
-    .artifact-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-    }
-
     .artifact-card {
       display: flex;
-      min-height: 178px;
+      min-height: 190px;
       flex-direction: column;
       justify-content: space-between;
-      padding: 18px;
       text-decoration: none;
-      transition: transform 160ms ease, border-color 160ms ease;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
     }
 
-    .artifact-card:hover {
+    .artifact-card:hover,
+    .artifact-card:focus-visible {
+      border-color: rgba(107, 217, 232, 0.6);
+      background: rgba(107, 217, 232, 0.06);
+      outline: none;
       transform: translateY(-2px);
-      border-color: #93c5fd;
-    }
-
-    .artifact-type {
-      color: var(--blue);
-      font-size: 0.78rem;
-      font-weight: 800;
-      text-transform: uppercase;
     }
 
     .artifact-card h3 {
@@ -470,15 +575,28 @@
       font-size: 1rem;
     }
 
+    .artifact-card strong {
+      width: fit-content;
+      min-height: 36px;
+      margin-top: 16px;
+      padding: 7px 10px;
+      font-size: 0.78rem;
+    }
+
     .footer {
       border-top: 1px solid var(--line);
-      padding: 24px 0;
-      color: var(--muted);
+      padding: 28px 0 36px;
       font-size: 0.9rem;
     }
 
-    @media (max-width: 900px) {
+    .footer strong {
+      color: var(--green);
+      font-family: var(--mono);
+    }
+
+    @media (max-width: 980px) {
       .hero-inner,
+      .section-title,
       .visual-grid {
         grid-template-columns: 1fr;
       }
@@ -494,9 +612,43 @@
       }
     }
 
-    @media (max-width: 620px) {
+    @media (max-width: 700px) {
+      .hero-inner,
+      .section-inner,
+      .capstone-nav {
+        width: auto;
+        margin-right: 10px;
+        margin-left: 10px;
+      }
+
+      .capstone-nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .navlinks {
+        justify-content: flex-start;
+      }
+
       .hero-inner {
-        padding-top: 40px;
+        padding-top: 34px;
+      }
+
+      h1 {
+        width: min(18ch, 100%);
+        max-width: min(18ch, 100%);
+        font-size: clamp(2rem, 8.6vw, 2.55rem);
+        line-height: 1.04;
+      }
+
+      h2 {
+        font-size: clamp(1.46rem, 7vw, 2rem);
+      }
+
+      .hero-copy {
+        width: min(38ch, 100%);
+        max-width: min(38ch, 100%);
+        font-size: 1rem;
       }
 
       .metric-grid,
@@ -510,12 +662,20 @@
         grid-template-columns: 1fr;
       }
 
-      .matrix-cell {
-        min-height: 96px;
+      .matrix-cell,
+      .metric-card,
+      .artifact-card {
+        min-height: auto;
       }
 
-      .button {
+      .button,
+      .artifact-card strong {
         width: 100%;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
       }
     }
   </style>
@@ -523,6 +683,18 @@
 <body>
   <main class="page">
     <section class="hero">
+      <nav class="capstone-nav" aria-label="Capstone navigation">
+        <a class="brand" href="../../../" target="_blank" rel="noopener noreferrer" aria-label="Open AI/ML Portfolio Hub">
+          <span class="brand-mark">EO</span>
+          <span>AI/ML Portfolio Hub</span>
+        </a>
+        <div class="navlinks">
+          <a href="../../../#projects" target="_blank" rel="noopener noreferrer">Portfolio</a>
+          <a href="https://github.com/omohemma/AIML-Portfolio/tree/main/projects/extraalearn-lead-conversion-deployment" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://huggingface.co/spaces/omohemma/extraalearn-frontend" target="_blank" rel="noopener noreferrer">Live App</a>
+        </div>
+      </nav>
+
       <div class="hero-inner">
         <div>
           <p class="eyebrow">PG-AIML Capstone Project</p>
@@ -531,9 +703,10 @@
             A machine learning deployment project that helps ExtraaLearn rank incoming leads by conversion probability, so sales teams can focus outreach on the most promising prospects.
           </p>
           <div class="hero-actions" aria-label="Project files">
-            <a class="button primary" href="../Emmanuel_Omololu_ExtraaLearn_Model_Deployment_Full_Code.ipynb">Open Notebook</a>
-            <a class="button" href="../README.md">Read Project Notes</a>
-            <a class="button" href="https://www.mygreatlearning.com/eportfolio/emmanuel-omololu">Great Learning Profile</a>
+            <a class="button primary" href="../notebooks/extraalearn_model_deployment.ipynb" target="_blank" rel="noopener noreferrer">Open Notebook</a>
+            <a class="button" href="https://github.com/omohemma/AIML-Portfolio/tree/main/projects/extraalearn-lead-conversion-deployment" target="_blank" rel="noopener noreferrer">GitHub Folder</a>
+            <a class="button" href="https://huggingface.co/spaces/omohemma/extraalearn-frontend" target="_blank" rel="noopener noreferrer">Live ExtraaLearn</a>
+            <a class="button" href="https://www.mygreatlearning.com/eportfolio/emmanuel-omololu" target="_blank" rel="noopener noreferrer">Great Learning Profile</a>
           </div>
         </div>
 
@@ -735,7 +908,7 @@
         </div>
 
         <div class="artifact-grid">
-          <a class="artifact-card" href="../Emmanuel_Omololu_ExtraaLearn_Model_Deployment_Full_Code.ipynb">
+          <a class="artifact-card" href="../notebooks/extraalearn_model_deployment.ipynb" target="_blank" rel="noopener noreferrer">
             <div>
               <span class="artifact-type">Notebook</span>
               <h3>Full Capstone Code</h3>
@@ -743,7 +916,7 @@
             </div>
             <strong>Open file</strong>
           </a>
-          <a class="artifact-card" href="../training_summary.json">
+          <a class="artifact-card" href="training_summary.json" target="_blank" rel="noopener noreferrer">
             <div>
               <span class="artifact-type">Summary</span>
               <h3>Training Summary</h3>
@@ -751,7 +924,7 @@
             </div>
             <strong>Open file</strong>
           </a>
-          <a class="artifact-card" href="../backend_files/app.py">
+          <a class="artifact-card" href="../backend/app.py" target="_blank" rel="noopener noreferrer">
             <div>
               <span class="artifact-type">API</span>
               <h3>Flask Backend</h3>
@@ -759,7 +932,7 @@
             </div>
             <strong>Open file</strong>
           </a>
-          <a class="artifact-card" href="../frontend_files/app.py">
+          <a class="artifact-card" href="../frontend/app.py" target="_blank" rel="noopener noreferrer">
             <div>
               <span class="artifact-type">App</span>
               <h3>Streamlit Frontend</h3>
@@ -767,7 +940,7 @@
             </div>
             <strong>Open file</strong>
           </a>
-          <a class="artifact-card" href="https://www.mygreatlearning.com/eportfolio/emmanuel-omololu">
+          <a class="artifact-card" href="https://www.mygreatlearning.com/eportfolio/emmanuel-omololu" target="_blank" rel="noopener noreferrer">
             <div>
               <span class="artifact-type">Profile</span>
               <h3>Great Learning E-Portfolio</h3>
@@ -781,7 +954,7 @@
 
     <footer class="footer">
       <div class="section-inner">
-        <strong>Emmanuel Omololu</strong> · AI/ML Capstone Portfolio Display · July 2026
+        <strong>Emmanuel Omololu</strong> | AI/ML Capstone Portfolio Display | July 2026
       </div>
     </footer>
   </main>
