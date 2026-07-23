@@ -908,17 +908,12 @@ h3 {
     overflow-wrap: normal;
   }
 
-  .hero-tags {
-    display: grid;
-    width: min(34ch, 100%);
-    grid-template-columns: 1fr;
-    align-items: stretch;
+  .console-card {
+    display: none;
   }
 
-  .hero-tags span {
-    width: 100%;
-    max-width: 100%;
-    overflow-wrap: anywhere;
+  .hero-tags {
+    display: none;
   }
 
   .brief-list strong {
