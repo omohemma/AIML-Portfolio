@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReneWind Turbine Failure Prediction | Emmanuel Omololu</title>
+  <meta name="description" content="Portfolio display page for a ReneWind deep learning turbine failure prediction project.">
+  <link rel="stylesheet" href="../project-display.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <nav class="project-nav" aria-label="Project navigation">
+        <a class="brand" href="../../" target="_blank" rel="noopener noreferrer"><span class="brand-mark">EO</span><span>AI/ML Portfolio Hub</span></a>
+        <div class="navlinks">
+          <a href="../../#projects" target="_blank" rel="noopener noreferrer">Portfolio</a>
+          <a href="https://github.com/omohemma/AIML-Portfolio/tree/main/projects/renewind-turbine-failure-prediction" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/omohemma/AIML-Portfolio/blob/main/projects/renewind-turbine-failure-prediction/reports/renewind_turbine_failure_prediction.html" target="_blank" rel="noopener noreferrer">Report</a>
+        </div>
+      </nav>
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Deep Learning / Predictive Maintenance</p>
+          <h1>ReneWind Turbine Failure Prediction</h1>
+          <p class="hero-copy">A turbine failure classification project that uses anonymized sensor features to support maintenance prioritization and reduce avoidable downtime.</p>
+          <div class="tag-row"><span>Neural Networks</span><span>Classification</span><span>Sensor Data</span><span>Maintenance Risk</span></div>
+          <div class="hero-actions">
+            <a class="button primary" href="https://github.com/omohemma/AIML-Portfolio/blob/main/projects/renewind-turbine-failure-prediction/notebooks/renewind_turbine_failure_prediction.ipynb" target="_blank" rel="noopener noreferrer">Open Notebook</a>
+            <a class="button" href="https://github.com/omohemma/AIML-Portfolio/blob/main/projects/renewind-turbine-failure-prediction/reports/renewind_turbine_failure_prediction.html" target="_blank" rel="noopener noreferrer">Open Report</a>
+            <a class="button" href="https://github.com/omohemma/AIML-Portfolio/tree/main/projects/renewind-turbine-failure-prediction" target="_blank" rel="noopener noreferrer">GitHub Folder</a>
+          </div>
+        </div>
+        <aside class="summary-panel" aria-label="ReneWind summary">
+          <div class="panel-top"><div class="window-dots" aria-hidden="true"><span></span><span></span><span></span></div><span class="panel-label">maintenance_model.json</span></div>
+          <div class="panel-body">
+            <div class="brief-row"><span>dataset</span><strong>20,000 train rows, 5,000 test rows, 40 anonymized sensor variables</strong></div>
+            <div class="brief-row"><span>selected focus</span><strong>recall-aware failure detection for high-cost missed failures</strong></div>
+            <div class="brief-row"><span>final test result</span><strong>98.98% accuracy with about 0.90 F1-score</strong></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-inner">
+        <div class="section-title"><h2>Project At A Glance</h2><p class="section-kicker">The model is evaluated through both statistical performance and maintenance-risk trade-offs.</p></div>
+        <div class="metric-grid">
+          <article class="metric-card"><div class="metric-label">Accuracy</div><div class="metric-value">98.98%</div><p class="metric-note">Final test-set result</p></article>
+          <article class="metric-card"><div class="metric-label">Precision</div><div class="metric-value">95.65%</div><p class="metric-note">Failure prediction quality</p></article>
+          <article class="metric-card"><div class="metric-label">Recall</div><div class="metric-value">85.82%</div><p class="metric-note">Actual failures captured</p></article>
+          <article class="metric-card"><div class="metric-label">F1 Score</div><div class="metric-value">0.90</div><p class="metric-note">Approximate final balance</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-title"><h2>Evaluation Snapshot</h2><p class="section-kicker">The confusion matrix shows the model captured 242 failures while missing 40 failures on the test set.</p></div>
+        <article class="matrix">
+          <div class="matrix-grid">
+            <div class="matrix-cell good"><strong>4707</strong><span>True Negatives</span></div>
+            <div class="matrix-cell warn"><strong>11</strong><span>False Positives</span></div>
+            <div class="matrix-cell risk"><strong>40</strong><span>False Negatives</span></div>
+            <div class="matrix-cell info"><strong>242</strong><span>True Positives</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="section-inner">
+        <div class="section-title"><h2>Business Use</h2><p class="section-kicker">The value is not just high accuracy; it is using model output to guide preventive action.</p></div>
+        <div class="recommendations">
+          <article class="recommendation"><h3>Prioritize Recall</h3><p>When failure cost is high, missing a real failure matters more than a small number of extra checks.</p></article>
+          <article class="recommendation"><h3>Track False Positives</h3><p>Unnecessary maintenance has cost, so false positives should be monitored in production.</p></article>
+          <article class="recommendation"><h3>Retrain Periodically</h3><p>Sensor and maintenance patterns can drift as turbine conditions change.</p></article>
+          <article class="recommendation"><h3>Use For Triage</h3><p>The model is best positioned as a maintenance prioritization aid.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <div class="section-title"><h2>Project Artifacts</h2><p class="section-kicker">Notebook, rendered report, data files, and public repository folder are available for inspection.</p></div>
+        <div class="artifact-grid">
+          <a class="artifact-card" href="https://github.com/omohemma/AIML-Portfolio/blob/main/projects/renewind-turbine-failure-prediction/notebooks/renewind_turbine_failure_prediction.ipynb" target="_blank" rel="noopener noreferrer"><div><span class="artifact-type">Notebook</span><h3>Modeling Notebook</h3><p>EDA, preprocessing, neural network modeling, tuning, and evaluation.</p></div><strong>Open file</strong></a>
+          <a class="artifact-card" href="https://github.com/omohemma/AIML-Portfolio/blob/main/projects/renewind-turbine-failure-prediction/reports/renewind_turbine_failure_prediction.html" target="_blank" rel="noopener noreferrer"><div><span class="artifact-type">Report</span><h3>Rendered HTML Report</h3><p>Readable report version for fast technical review.</p></div><strong>Open report</strong></a>
+          <a class="artifact-card" href="https://github.com/omohemma/AIML-Portfolio/blob/main/projects/renewind-turbine-failure-prediction/data/Train.csv" target="_blank" rel="noopener noreferrer"><div><span class="artifact-type">Data</span><h3>Training Data</h3><p>20,000-row anonymized sensor training file.</p></div><strong>Open data</strong></a>
+          <a class="artifact-card" href="https://github.com/omohemma/AIML-Portfolio/blob/main/projects/renewind-turbine-failure-prediction/data/Test.csv" target="_blank" rel="noopener noreferrer"><div><span class="artifact-type">Data</span><h3>Test Data</h3><p>5,000-row holdout file used for final evaluation.</p></div><strong>Open data</strong></a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer"><div class="section-inner"><strong>Emmanuel Omololu</strong> | ReneWind Portfolio Display | July 2026</div></footer>
+  </main>
+</body>
+</html>
