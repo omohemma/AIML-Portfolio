@@ -2,6 +2,12 @@
 
 A curated portfolio of applied AI, machine learning, deep learning, deployment, and GenAI projects originally developed in Google Colab and reorganized for GitHub review.
 
+## Portfolio Hub
+
+Open the master portfolio hub at `index.html`, or through GitHub Pages when enabled for this repository:
+
+https://omohemma.github.io/AIML-Portfolio/
+
 ## Projects
 
 | Project | Area | Tools | Status |
